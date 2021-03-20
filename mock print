@@ -1,0 +1,11 @@
+from unittest import TestCase
+from unittest.mock import patch
+import main
+
+
+class PrintTest(TestCase):
+    def test_print(self):
+        with patch('builtins.print') as mocked_print:
+            input_name = 'Master Jayan'
+            main.print_name(input_name)
+            mocked_print.assert_called_with('My name is '+input_name)
